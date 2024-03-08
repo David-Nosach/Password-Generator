@@ -1,5 +1,10 @@
 // Assignment code here
 function generatePassword() {
+  var lc = "abcdefghijklmnopqrstuvwxyz";
+  var uc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var num = "0123456789";
+  var symb = "{}()#[],!_@/:;.|`$=+-*^?&~%'";
+
   while (true) {
     var lengthChar = prompt("How many charcters would you like? (8-128)");
     if (lengthChar <= 128 && lengthChar >= 8) {
@@ -8,20 +13,57 @@ function generatePassword() {
     alert("Password length must be 8 to 128 characters long!");
   }
 
-  // var lengthChar = prompt("Length of Password (8-128 characters)");
+  function lowerCharFunc() {
+    var lowerChar = confirm("Do you want lowercase characters?");
+    if (lowerChar === true) {
+      lowerChar = "";
+      lowerChar += lc[Math.floor(Math.random() * lc.length)];
+      return lowerChar;
+    } else {
+      return false;
+    }
+  }
 
-  // if (lengthChar < 8 || lengthChar > 128) {
-  //   alert("make length be between 8 - 128");
-  // } else {
-  //   return lengthChar;
-  // }
+  function specialCharFunc() {
+    var specialChar = confirm("Do you want uppercase characters?");
+    if (specialChar === true) {
+      specialChar = "";
+      specialChar += symb[Math.floor(Math.random() * symb.length)];
+      return specialChar;
+    } else {
+      return false;
+    }
+  }
 
-  var lowerChar = confirm("Do you want lowercase characters?");
-  var upperChar = confirm("Do you want uppercase characters?");
-  var numberChar = confirm("Do you want numbers?");
-  var specialChar = confirm("Do you want special characters?");
+  function numberCharFunc() {
+    var numberChar = confirm("Do you want numbers?");
+    if (numberChar === true) {
+      numberChar = "";
+      numberChar += num[Math.floor(Math.random() * num.length)];
+      return numberChar;
+    } else {
+      return false;
+    }
+  }
 
-  return lengthChar + lowerChar + upperChar + numberChar + specialChar;
+  function upperCharFunc() {
+    var upperChar = confirm("Do you want uppercase characters?");
+    if (upperChar === true) {
+      upperChar = "";
+      upperChar += uc[Math.floor(Math.random() * uc.length)];
+      return upperChar;
+    } else {
+      return false;
+    }
+  }
+
+  var password =
+    lowerCharFunc() + upperCharFunc() + numberCharFunc() + specialCharFunc();
+
+  return (
+    // lengthChar +
+    password
+  );
 }
 
 // Get references to the #generate element
