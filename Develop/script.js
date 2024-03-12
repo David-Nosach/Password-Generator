@@ -30,33 +30,35 @@ function generatePassword(
   return password;
 }
 
-while (true) {
-  var lengthChar = prompt("How many charcters would you like? (8-128)");
-  if (lengthChar <= 128 && lengthChar >= 8) {
-    break;
-  }
-  alert("Password length must be 8 to 128 characters long!");
-}
-var chooseLc = confirm("Would you like lowercase characters?");
-var chooseUc = confirm("Would you like UPPERCASE characters?");
-var chooseNum = confirm("Would you like numbers?");
-var chooseSymb = confirm("Would you like symbols?");
-
-// Get references to the #generate element
+// Get reference to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+// Function to handle generating and displaying password
 function writePassword() {
-  var password = generatePassword(
-    lengthChar,
-    chooseLc,
-    chooseUc,
-    chooseNum,
-    chooseSymb
-  );
-  var passwordText = document.querySelector("#password");
+  // Prompt for password length
+  var lengthChar = prompt("How many characters would you like? (8-128)");
+  if (lengthChar <= 128 && lengthChar >= 8) {
+    // Prompt for character types
+    var chooseLc = confirm("Would you like lowercase characters?");
+    var chooseUc = confirm("Would you like UPPERCASE characters?");
+    var chooseNum = confirm("Would you like numbers?");
+    var chooseSymb = confirm("Would you like symbols?");
 
-  passwordText.value = password;
+    // Generate password based on user choices
+    var password = generatePassword(
+      lengthChar,
+      chooseLc,
+      chooseUc,
+      chooseNum,
+      chooseSymb
+    );
+
+    // Display generated password
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  } else {
+    alert("Password length must be 8 to 128 characters long!");
+  }
 }
 
 // Add event listener to generate button
