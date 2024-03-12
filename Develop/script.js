@@ -6,6 +6,7 @@ function generatePassword(
   chooseNum,
   chooseSymb
 ) {
+  // types of characters
   var lc = "abcdefghijklmnopqrstuvwxyz";
   var uc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var num = "0123456789";
@@ -14,6 +15,7 @@ function generatePassword(
   var includedChars = "";
   var password = "";
 
+  // check for type of characters user chose
   includedChars += chooseLc ? lc : "";
   includedChars += chooseUc ? uc : "";
   includedChars += chooseNum ? num : "";
@@ -23,6 +25,7 @@ function generatePassword(
     return "Password must have at least one character type";
   }
 
+  // Add proper password length and randomize characters
   for (var i = 0; i < lengthChar; i++) {
     var randomized = Math.floor(Math.random() * includedChars.length);
     password += includedChars[randomized];
