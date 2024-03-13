@@ -23,12 +23,16 @@ body {
   padding-right: 20px;
 }
 
+/* Header Styles */
+
 header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
 }
+
+/* Card Styles */
 
 .card {
   background-color: hsl(0, 0%, 100%);
@@ -72,6 +76,8 @@ header {
   clear: both;
 }
 
+/* Button Styles */
+
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -97,6 +103,8 @@ button[disabled] {
   float: right;
 }
 
+/* Password Styles */
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -117,6 +125,8 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
+
+/* Media Queries */
 
 @media (max-width: 690px) {
   .btn {
